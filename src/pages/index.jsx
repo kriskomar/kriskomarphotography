@@ -23,8 +23,14 @@ import Contact from '../views/Contact'
 import avatar from '../images/kris.jpg'
 import logo from '../images/kris-komar-photography-logo-600.png'
 
+// Styles
+import { glStyles } from '../styles/glsStyles.jsx'
+
+const PadMe = styled.div`
+  ${tw`px-6 md:px-12 lg:px-24`};
+`
 const ProjectsWrapper = styled.div`
-  ${tw`flex flex-wrap justify-between mt-8`};
+  ${tw`flex flex-wrap justify-between mt-8 px-6 md:px-12 lg:px-24`};
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(2, 1fr);
@@ -68,17 +74,16 @@ const Logo = styled.img`
 const Index = () => (
   <>
     <Layout />
-    <Parallax pages={4}>
+    <Parallax pages={5}>
       <Hero offset={0}>
-      <KrisCarousel />
-      <Logo src={logo} alt="Kris Komar Photography" />
-        {/* <BigTitle>
-          Hello, <br /> I'm Kris Komar.
-        </BigTitle> */}
-        <Subtitle className="stroke-font">Offering photographic services in the Treasure Valley area.<br />208.559.4595 - <a href="mailto:kriskomar@gmail.com">kriskomar@gmail.com</a></Subtitle>
+        <KrisCarousel />
+        <Logo src={logo} alt="Kris Komar Photography" />
+        <PadMe>
+          <Subtitle className="stroke-font">Offering photographic services in the Treasure Valley area.<br />208.559.4595 - <a href="mailto:kriskomar@gmail.com">kriskomar@gmail.com</a></Subtitle>
+        </PadMe>
       </Hero>
       <Projects offset={1}>
-        <Title>Types of photography offered</Title>
+        <PadMe><Title>Types of photography offered</Title></PadMe>
         <ProjectsWrapper>
           <ProjectCard
             title="Portraiture/Group Photos"
@@ -110,7 +115,8 @@ const Index = () => (
           </ProjectCard>
         </ProjectsWrapper>
       </Projects>
-      <About offset={2}>
+      <About offset={3}>
+      <PadMe>
         <Title>About me</Title>
         <AboutHero>
           <Avatar src={avatar} alt="Kris Komar" />
@@ -127,8 +133,10 @@ const Index = () => (
           naturally artistic to be able to identify and frame a great image, yet also understand the science behind
           the equipment that is taking the photo. Only then can a truly beautiful image be captured. 
         </AboutDesc>
+        </PadMe>
       </About>
-      <Contact offset={3}>
+      <Contact offset={4}>
+        <PadMe>
         <Inner>
           <Title>Get in touch with me</Title>
           <ContactText>
@@ -141,6 +149,7 @@ const Index = () => (
         <Footer>
           &copy; 2019 Kris Komar Photography, LLC
         </Footer>
+        </PadMe>
       </Contact>
     </Parallax>
   </>
