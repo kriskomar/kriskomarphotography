@@ -6,9 +6,8 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const CarouselWrapper = styled.div` 
-  ${tw`flex object-cover overflow-hidden h-auto w-full p-0`};
+  ${tw`flex overflow-y-visible h-auto w-full p-0`};
 `
-
 
 class KrisCarousel extends Component {
     render() {

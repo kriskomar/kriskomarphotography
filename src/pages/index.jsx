@@ -68,7 +68,8 @@ const Footer = styled.footer`
 `
 
 const Logo = styled.img`
-  ${tw`rounded-lg w-4/5 xl:w-4/5 h-auto`};
+  ${tw`rounded-lg h-auto w-4/5 sm:w-2/5 md:w-3/5 lg:w-4/5 xl:w-4/5`};
+  top: -4rem;
 `
 
 const Index = () => (

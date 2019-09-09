@@ -9,7 +9,7 @@ import Content from '../elements/Content'
 //import SVG from '../components/SVG'
 
 const Wrapper = styled.div`
-  ${tw`w-full xl:w-2/3`};
+  ${tw`w-full h-full`};
 `
 
 const Hero = ({ children, offset }) => (
