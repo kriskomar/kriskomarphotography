@@ -1,40 +1,46 @@
-const config = require('./config/website')
-
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+require(`dotenv`).config({
+  path: `.env`,
+})
 
 module.exports = {
-  /* General Information */
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: 'https://kriskomarphotography.com',
+    siteTitleAlt: 'Kris Komar Photography',
+    siteHeadline: 'I\'m inspired by a melding of art and science.',
+    siteDescription: 'Kris Komar Photography Portfolio website.',
+    siteLanguage: 'en',
+    siteImage: '/kris-komar-photography-logo-600.png',
+    author: 'Kris Komar'
   },
-  /* Plugins */
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `@lekoarts/gatsby-theme-emilia`,
       options: {
-        path: `${__dirname}/src/images/`,
-        name: 'images',
+        name: 'Kris Komar Photography, LLC',
+        location: 'Kuna, ID, USA',
+        showThemeAuthor: false,
+        socialMedia: [
+          {
+            title: 'Instagram',
+            href: 'https://www.instagram.com/kriskomarphotography/'
+          }
+        ]
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: config.googleAnalyticsID,
+        trackingId: 'UA-135026740-1',
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: 'Kris Komar Photography',
+        short_name: 'Kris Komar Photography',
+        description: 'I\'m inspired by a melding of art and science.',
+        start_url: '/',
         display: 'standalone',
         icons: [
           {
@@ -76,8 +82,7 @@ module.exports = {
         ],
       },
     },
-    /* Must be placed at the end */
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`,
   ],
 }
